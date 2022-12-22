@@ -1,0 +1,42 @@
+app:
+  kafka:
+    zookeeper:
+      clusters:
+        lolsearcher:
+          controller:
+            server: localhost:9092
+          brokers:
+            broker1:
+              server: localhost:9092
+    topics:
+      success_match:
+        name: success_match
+    consumers:
+      success_match:
+        container_factory: successMatchListenerContainerFactory
+        group_id: success_match_group
+        poll_record_size: 100 #게임 서버로부터 얻을 수 있는 데이터가 2분에 최대 100회이기 때문
+        heartbeat: 2000
+        session_time_out: 6000
+        isolation: read_committed
+        auto_offset_reset: earliest
+        enable_auto_commit: false
+        trust_packages: com.lolsearcher.persistence.successmatch.entity.match
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 25
+      connection-timeout: 3000
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+        batch_size: 1000
