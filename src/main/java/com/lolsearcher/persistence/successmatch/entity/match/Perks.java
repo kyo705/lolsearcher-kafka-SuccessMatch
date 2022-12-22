@@ -9,10 +9,10 @@ import javax.persistence.*;
 @Entity
 public class Perks {
     @EmbeddedId
-    MemberCompKey memberCompKey;
+    private MemberCompKey memberCompKey;
 
     @Column(name = "PERK_STATS_ID")
-    private int perkStatsId;
+    private Integer perkStatsId;
 
     @ManyToOne
     @JoinColumn(name = "PERK_STATS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
