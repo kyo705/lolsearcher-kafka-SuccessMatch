@@ -19,9 +19,9 @@ public class MatchConsumerService{
     private final MatchService matchService;
 
     @KafkaListener(
-            topics = {"${app.kafka.topics.filtered_fail_match.name}"},
-            groupId = "${app.kafka.consumers.filtered_fail_match.group_id}",
-            containerFactory = "${app.kafka.consumers.filtered_fail_match.container_factory}"
+            topics = {"${app.kafka.topics.success_match.name}"},
+            groupId = "${app.kafka.consumers.success_match.group_id}",
+            containerFactory = "${app.kafka.consumers.success_match.container_factory}"
     )
     public void consume(ConsumerRecords<String, Match> records, Acknowledgment acknowledgment) {
 

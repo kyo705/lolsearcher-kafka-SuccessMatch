@@ -14,10 +14,11 @@ app:
     consumers:
       success_match:
         container_factory: successMatchListenerContainerFactory
-        group_id: filtered_fail_match_id_group
+        group_id: success_match_group
         poll_record_size: 100 #게임 서버로부터 얻을 수 있는 데이터가 2분에 최대 100회이기 때문
         heartbeat: 2000
         session_time_out: 6000
         isolation: read_committed
         auto_offset_reset: earliest
         enable_auto_commit: false
+        trust_packages: com.lolsearcher.persistence.successmatch.entity.match

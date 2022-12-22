@@ -74,7 +74,7 @@ public class SuccessMatchConsumerConfig {
 
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
-        properties.put(ErrorHandlingDeserializer.KEY_DESERIALIZER_CLASS, JsonDeserializer.class);
+        properties.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class);
         properties.put(JsonDeserializer.TRUSTED_PACKAGES, TRUST_PACKAGES);
 
         properties.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, POLL_RECORDS_COUNT);
