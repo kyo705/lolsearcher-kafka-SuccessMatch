@@ -22,3 +22,21 @@ app:
         auto_offset_reset: earliest
         enable_auto_commit: false
         trust_packages: com.lolsearcher.persistence.successmatch.entity.match
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 25
+      connection-timeout: 3000
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+        batch_size: 1000
