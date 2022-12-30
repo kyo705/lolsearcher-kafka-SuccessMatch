@@ -12,7 +12,7 @@ public class Perks {
     private MemberCompKey memberCompKey;
 
     @Column(name = "PERK_STATS_ID")
-    private Integer perkStatsId;
+    private Integer perkStatsId; /* API로 가져올 시 해당 값 없음 -> 다른 필드값을 통해 DB에서 PK 찾고 저장해야함 */
 
     @ManyToOne
     @JoinColumn(name = "PERK_STATS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
